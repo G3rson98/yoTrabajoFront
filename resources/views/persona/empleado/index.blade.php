@@ -70,7 +70,7 @@
                     <a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar registro">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver registro">
+                    <a href="{{route('empleado.show',$empleado->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver registro">
                         <i class="fas fa-eye"></i>
                     </a>
                     <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="{{$empleado->id}}" 

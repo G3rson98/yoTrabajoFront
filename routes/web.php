@@ -35,8 +35,12 @@ Route::prefix('sancion')->group( function (){
 });
 Route::prefix('empleado')->group( function (){
     Route::get('index', 'EmpleadoController@index')->name('empleado.index');
-    Route::get('destroy/{id}', 'EmpleadoController@destroy')->name('empleado.destroy');    
+    Route::get('destroy/{id}', 'EmpleadoController@destroy')->name('empleado.destroy');
+    Route::get('show/{id}', 'EmpleadoController@show')->name('empleado.show');
+    Route::get('denegar/{id}', 'EmpleadoController@denegar')->name('empleado.denegar');
+    Route::get('aprobar/{id}', 'EmpleadoController@aprobar')->name('empleado.aprobar');
 });
+
 
 
 
