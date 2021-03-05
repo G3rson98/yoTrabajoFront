@@ -52,10 +52,10 @@
                 <td>{{ $empleado->telefono}}</td>
                 <td>{{ $empleado->fechaRegistro}}</td>
                 <td>
-                    @if ($empleado->sancion ==='activo')
-                        <span class="right badge badge-danger">Sancionado</span>
+                    @if ($empleado->estadoRegistro ==='aprobado')
+                        <span class="right badge badge-success">Aprobado</span>
                     @else
-                        <span class="right badge badge-success">Disponible</span>
+                        <span class="right badge badge-danger">En Espera</span>
                     @endif
                     @if ($empleado->estado ==='activo')
                         <span class="right badge badge-success">activo</span>

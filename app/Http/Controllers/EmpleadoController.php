@@ -22,7 +22,7 @@ class EmpleadoController extends Controller
             'base_uri' => $url,
             'timeout'  => 2.0,
         ]);
-        $response = $client->request('GET', 'empleado/index');        
+        $response = $client->request('GET','empleado/index');        
         $empleados =  json_decode($response->getBody()->getContents());
         return view('persona.empleado.index',['empleados'=>$empleados]);
     }
@@ -111,8 +111,12 @@ class EmpleadoController extends Controller
         ]);
         $response = $client->request('GET', 'empleado/aprobar/'.$id);
         $empleados =  json_decode($response->getBody()->getContents());
-        // return view('persona.empleado.index',['empleados'=>$empleados]);
-        return $empleados;
+        if ($empleados == 1) {
+            session()->flash('alert-success', 'Registro Aprobado');
+        }else{
+            session()->flash('alert-success', 'Registro Aprobado');
+        }
+        return redirect()->route('empleado.index');
     }
     public function denegar($id)
     {
@@ -125,7 +129,11 @@ class EmpleadoController extends Controller
         $empleados =  json_decode($response->getBody()->getContents());
         // return view('persona.empleado.index',['empleados'=>$empleados]);
 
-        if
-        return $empleados;
+        if ($empleados == 1) {
+            session()->flash('alert-danger', 'Registro Denegado');
+        }else{
+            session()->flash('alert-danger', 'Registro Denegado');
+        }
+        return redirect()->route('empleado.index');        
     }
 }

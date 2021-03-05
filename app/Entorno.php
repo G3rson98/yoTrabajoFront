@@ -4,7 +4,7 @@ class Entorno{
 
     public static function getURL()
     {
-        return 'https://38de0ea09323.ngrok.io/api/';
+        return 'https://d7a7f0ed4f6d.ngrok.io/api/';
     }
 
 }
