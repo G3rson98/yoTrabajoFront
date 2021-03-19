@@ -4,7 +4,7 @@ class Entorno{
 
     public static function getURL()
     {
-        return 'https://d7a7f0ed4f6d.ngrok.io/api/';
+        return 'http://127.0.0.1:8000/api/';
     }
 
 }

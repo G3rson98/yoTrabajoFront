@@ -38,29 +38,29 @@ class ApiEmpleadoController extends Controller
     public function store(Request $request)
     {
 
-        $persona= new Persona();
-        $persona->ci= $request->ci;
-        $persona->nombre= $request->nombre;
-        $persona->apellidoP= $request->apellidoP;
-        $persona->apellidoM= $request->apellidoM;
-        $persona->direccion= $request->direccion;
-        $persona->telefono= $request->telefono;
-        $persona->fechaNacimiento= $request->fechaNacimiento;
-        $persona->fechaRegistro= '03-02-2021';
-        $persona->foto= $request->foto;
-        $persona->longitud= $request->longitud;
-        $persona->latitud= $request->latitud;
-        //$persona->calificacionPromedio= 0;
-        $persona->tipo= 'empleado';
-        $persona->estado= 'activo';
-        $persona->sancion= 'inactivo';
-        $persona->estadoRegistro= 'espera';
-        $persona->fotoCi= $request->fotoCi;
-        $persona->fotoAntecedentesPenales= $request->fotoAntecedentesPenales;
-        $persona->fotoSelfieCi= $request->fotoSelfieCi;
+      //  $persona= new Persona();
+        // $persona->ci= $request->ci;
+        // $persona->nombre= $request->nombre;
+        // $persona->apellidoP= $request->apellidoP;
+        // $persona->apellidoM= $request->apellidoM;
+        // $persona->direccion= $request->direccion;
+        // $persona->telefono= $request->telefono;
+        // $persona->fechaNacimiento= $request->fechaNacimiento;
+        // $persona->fechaRegistro= '03-02-2021';
+        // $persona->foto= $request->foto;
+        // $persona->longitud= $request->longitud;
+        // $persona->latitud= $request->latitud;
+        // //$persona->calificacionPromedio= 0;
+        // $persona->tipo= 'empleado';
+        // $persona->estado= 'activo';
+        // $persona->sancion= 'inactivo';
+        // $persona->estadoRegistro= 'espera';
+        // $persona->fotoCi= $request->fotoCi;
+        // $persona->fotoAntecedentesPenales= $request->fotoAntecedentesPenales;
+        // $persona->fotoSelfieCi= $request->fotoSelfieCi;
         
-        $persona->save();
-        return response()->json($persona);
+        // $persona->save();
+        // return response()->json($persona);
         
     }
 

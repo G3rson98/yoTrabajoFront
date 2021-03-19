@@ -9,7 +9,7 @@ use App\Entorno;
 
 class EmpleadoController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +22,9 @@ class EmpleadoController extends Controller
             'base_uri' => $url,
             'timeout'  => 2.0,
         ]);
-        $response = $client->request('GET','empleado/index');        
+        $response = $client->request('GET', 'empleado/index');
         $empleados =  json_decode($response->getBody()->getContents());
-        return view('persona.empleado.index',['empleados'=>$empleados]);
+        return view('persona.empleado.index', ['empleados' => $empleados]);
     }
 
     /**
@@ -61,12 +61,12 @@ class EmpleadoController extends Controller
             'base_uri' => $url,
             'timeout'  => 2.0,
         ]);
-        $response = $client->request('GET', 'empleado/show/'.$id);        
+        $response = $client->request('GET', 'empleado/show/' . $id);
         $empleado =  json_decode($response->getBody()->getContents());
         $empleadoDatos = $empleado[0];
         $horarios = $empleadoDatos->horario;
         $oficios = $empleadoDatos->oficio;
-        return view('persona.empleado.show',['personas'=>$empleadoDatos,'horario'=>$horarios,'oficio'=>$oficios]);
+        return view('persona.empleado.show', ['personas' => $empleadoDatos, 'horario' => $horarios, 'oficio' => $oficios]);
         // return $empleadoDatos;
     }
 
@@ -100,7 +100,7 @@ class EmpleadoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {                
+    {
     }
     public function aprobar($id)
     {
@@ -109,31 +109,32 @@ class EmpleadoController extends Controller
             'base_uri' => $url,
             'timeout'  => 2.0,
         ]);
-        $response = $client->request('GET', 'empleado/aprobar/'.$id);
+        $response = $client->request('GET', 'empleado/aprobar/' . $id);
         $empleados =  json_decode($response->getBody()->getContents());
         if ($empleados == 1) {
             session()->flash('alert-success', 'Registro Aprobado');
-        }else{
+        } else {
             session()->flash('alert-success', 'Registro Aprobado');
         }
         return redirect()->route('empleado.index');
     }
     public function denegar($id)
     {
+
         $url = Entorno::getURL();
         $client = new Client([
             'base_uri' => $url,
             'timeout'  => 2.0,
         ]);
-        $response = $client->request('GET', 'empleado/denegar/'.$id);
+        $response = $client->request('GET', 'empleado/denegar/' . $id);
         $empleados =  json_decode($response->getBody()->getContents());
         // return view('persona.empleado.index',['empleados'=>$empleados]);
 
         if ($empleados == 1) {
             session()->flash('alert-danger', 'Registro Denegado');
-        }else{
+        } else {
             session()->flash('alert-danger', 'Registro Denegado');
         }
-        return redirect()->route('empleado.index');        
+        return redirect()->route('empleado.index');
     }
 }
